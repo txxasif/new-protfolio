@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-type Tabs = "home" | "about" | "contact";
+type Tabs = "home" | "about" | "projects";
 
 interface TabStore {
   currentTab: Tabs;

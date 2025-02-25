@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function EnhancedPhoto() {
   return (
-    <div className="relative w-full max-w-sm sm:max-w-md mx-auto px-4 sm:px-8 md:px-16 py-8 sm:py-16 select-none">
+    <div className="relative w-full max-w-sm sm:max-w-md mx-auto px-4 sm:px-8 md:px-16 py-8 sm:py-16 select-none   ">
       {/* Background shadow layer */}
       <div
         className="absolute top-0 left-0 w-full h-full rounded-lg opacity-10"

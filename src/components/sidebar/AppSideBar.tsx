@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/sidebar";
 import { useTabStore } from "@/store/tab-store";
 
-type Tabs = "home" | "about" | "contact";
+type Tabs = "home" | "about" | "projects";
 
 export function AppSidebar() {
   const { isMobile } = useSidebar();
@@ -16,7 +16,7 @@ export function AppSidebar() {
   const menuItems: { label: string; value: Tabs }[] = [
     { label: "Home", value: "home" },
     { label: "About", value: "about" },
-    { label: "Settings", value: "contact" },
+    { label: "Projects", value: "projects" },
   ];
   return (
     <>

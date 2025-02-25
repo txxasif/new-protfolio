@@ -1,12 +1,10 @@
 import React from "react";
-import { Home } from "./Home";
+import { Home } from "./Home/Home";
 import { About } from "./About/About";
-export const Contact: React.FC = () => (
-  <div className="p-4 text-xl">📞 Contact Page</div>
-);
+import { Projects } from "./Projects/Projects";
 
 export const TABS: Record<string, React.FC> = {
   home: Home,
   about: About,
-  contact: Contact,
+  projects: Projects,
 };
