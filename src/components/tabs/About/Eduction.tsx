@@ -23,7 +23,7 @@ const EducationItem: React.FC<EducationItemProps & { isLast: boolean }> = ({
         <div className="font-semibold text-lg text-gray-900">{school}</div>
         <div className="text-[#767676]">{degree}</div>
       </div>
-      <div className="border border-gray-300 rounded-md px-3 py-1 text-sm text-gray-700">
+      <div className="border border-gray-300 rounded-md px-3 py-1 text-sm text-gray-700 whitespace-nowrap">
         {time}
       </div>
     </div>
@@ -51,15 +51,19 @@ const EducationList: React.FC<EducationListProps> = ({ educationData }) => {
 const Education: React.FC = () => {
   const educationData: EducationItemProps[] = [
     {
-      school: "University of Texas",
-      degree: "Master's Degree",
-      time: "2020 - 2022",
+      school: "Daffodil International University",
+      degree: "BSC",
+      time: "2018 - 2023",
     },
-    { school: "Webster College", degree: "Code Expert", time: "2018 - 2020" },
     {
-      school: "Technology School",
-      degree: "Computer Engineering",
-      time: "2016 - 2018",
+      school: "Birshreshtha Munshi Abdur Rouf Public College",
+      degree: "HSC",
+      time: "2015 - 2017",
+    },
+    {
+      school: "Sonagazi Mohammad Saber Model Pilot High School",
+      degree: "SSC",
+      time: "2013 - 2015",
     },
   ];
 

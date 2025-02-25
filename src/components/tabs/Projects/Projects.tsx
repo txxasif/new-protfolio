@@ -2,7 +2,6 @@
 
 import ProjectCard from "./ProjectCard";
 import { ErrorBoundary } from "react-error-boundary";
-import { ReactNode } from "react";
 import {
   FaReact,
   FaNodeJs,
@@ -17,51 +16,31 @@ import {
   FaJava,
 } from "react-icons/fa";
 
-// Define the tech stack interface
-interface TechItem {
-  name: string;
-  icon: ReactNode;
-}
-
-// Define the project interface
-interface Project {
-  name: string;
-  details: string;
-  liveLink?: string;
-  githubLink?: string; // Made optional
-  color: string;
-  techStack: TechItem[];
-}
-
-// Common styling for all icons
 const iconStyle = "h-6 w-6";
 
-// Updated projects array with tech stack icons
 const projects: Project[] = [
   {
-    name: "Awesome Project",
+    name: "Floodscape Memories",
     details:
-      "A sophisticated web application built with React and Node.js. It features real-time data synchronization, advanced state management with Redux, and a responsive design using Tailwind CSS. The project demonstrates best practices in modern web development, including code splitting, lazy loading, and optimized performance.",
-    liveLink: "https://awesome-project.vercel.app",
-    githubLink: "https://github.com/yourusername/awesome-project",
+      "Floodscape Memories, a special place where we, as a close-knit group of friends who feel like family, come together to preserve our shared experiences. This website holds the photos and memories from the flood that impacted Feni, a time when we banded together to help those in need. As we continue to build our story, we'll keep adding to this collection, ensuring that these moments stay with us for years to come.",
+    liveLink: "https://floodscape-memories.vercel.app/",
+    githubLink: "https://github.com/txxasif/FloodscapeMemories",
     color: "#3b82f6",
     techStack: [
       { name: "React", icon: <FaReact className={iconStyle} /> },
-      { name: "Node.js", icon: <FaNodeJs className={iconStyle} /> },
       { name: "JavaScript", icon: <FaJs className={iconStyle} /> },
     ],
   },
   {
-    name: "Cool API",
+    name: "Ecopass",
     details:
-      "A robust RESTful API built with Express.js and MongoDB. It implements JWT authentication, rate limiting, and comprehensive error handling. The API is fully documented with Swagger and includes automated tests using Jest.",
-    // No liveLink provided, should render a disabled button
-    githubLink: "https://github.com/yourusername/cool-api",
-    color: "#10b981",
+      "Ecopass is an innovative project leveraging the Ecobalyse API to provide accurate and actionable sustainability insights. It is designed to analyze environmental footprints, offering businesses and individuals a comprehensive understanding of their impact on the planet.",
+    liveLink: "https://dev.ecopass.huipsov.fi/en",
+
+    color: "#3b82f6",
     techStack: [
-      { name: "Node.js", icon: <FaNodeJs className={iconStyle} /> },
-      { name: "MongoDB", icon: <FaDatabase className={iconStyle} /> },
-      { name: "Express", icon: <FaServer className={iconStyle} /> },
+      { name: "React", icon: <FaReact className={iconStyle} /> },
+      { name: "JavaScript", icon: <FaJs className={iconStyle} /> },
     ],
   },
   {
@@ -126,7 +105,7 @@ function ErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
 
 export function Projects() {
   return (
-    <div className="px-8 pt-28 space-y-8">
+    <div className="px-8 pt-4 pb-4 sm:pt-28 space-y-8">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <ErrorBoundary

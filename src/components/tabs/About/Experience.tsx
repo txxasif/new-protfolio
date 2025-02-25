@@ -51,19 +51,14 @@ const ExperienceList: React.FC<ExperienceListProps> = ({ experienceData }) => {
 const Experience: React.FC = () => {
   const experienceData: ExperienceItemProps[] = [
     {
-      company: "Google",
+      company: "ATC Tech Limited",
       role: "Software Engineer",
-      time: "2020 - Present",
+      time: "2024 - 2024",
     },
     {
-      company: "WebDev Inc.",
+      company: "DevXhub",
       role: "Frontend Developer",
-      time: "2018 - 2020",
-    },
-    {
-      company: "TechSolutions",
-      role: "Junior Developer",
-      time: "2016 - 2018",
+      time: "2024 - Present",
     },
   ];
 

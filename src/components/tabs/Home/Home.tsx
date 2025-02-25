@@ -1,9 +1,12 @@
+import { useTabStore } from "@/store/tab-store";
 import { InteractiveHoverButton } from "../../magicui/interactive-hover-button";
 import { WordRotate } from "../../magicui/word-rotate";
 import PageWrapper from "../../shared/PageWrapperAnimation";
 import PhotoComponent from "../../shared/RotatedPhoto";
 import Image from "next/image";
 const IntroPart = () => {
+  const { setTab } = useTabStore();
+
   return (
     <div className="flex flex-col md:flex-row justify-center items-center gap-6">
       <div className="space-y-3">
@@ -17,7 +20,13 @@ const IntroPart = () => {
           />
         </h1>
         <div className="pt-4">
-          <InteractiveHoverButton>See</InteractiveHoverButton>
+          <InteractiveHoverButton
+            onClick={() => {
+              setTab("projects");
+            }}
+          >
+            See My Works
+          </InteractiveHoverButton>
         </div>
       </div>
       <Image
@@ -38,7 +47,7 @@ const IntroPart = () => {
 
 export const Home: React.FC = () => (
   <PageWrapper>
-    <div className="flex items-center justify-center h-screen mx-4">
+    <div className="pt-6 sm:flex items-center justify-center sm:h-screen mx-4 sm:mx-20">
       <IntroPart />
     </div>
   </PageWrapper>

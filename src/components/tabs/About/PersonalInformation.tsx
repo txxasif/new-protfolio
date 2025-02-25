@@ -3,13 +3,12 @@ import { Heading } from "./Heading";
 
 export const PersonalDetails = () => {
   const contactData = [
-    { label: "Name", value: "Jessica Parker" },
-    { label: "Address", value: "Ave Street 177, New York, USA" },
-    { label: "Study", value: "University of Texas" },
-    { label: "Degree", value: "Master of Design" },
-    { label: "Mail", value: "james@example.com" },
-    { label: "Phone", value: "+44 077 155 09 09" },
-    { label: "Freelance", value: "Available" },
+    { label: "Name", value: "Asif" },
+    { label: "Address", value: "Dhaka , Bangladesh" },
+    { label: "Study", value: "Daffodil International University" },
+    { label: "Degree", value: "Computer Science and Engineering" },
+    { label: "Mail", value: "ahasiffff@gmail.com" },
+    { label: "Phone", value: "+8801679806197" },
   ];
 
   return (
@@ -29,6 +28,14 @@ export const PersonalDetails = () => {
   );
 };
 export const BioGraphy = () => {
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/files/cv.pdf";
+    link.download = "asif_cv.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <div className="space-y-10 flex-1 p-6">
       <Heading title="Biography" />
@@ -40,7 +47,9 @@ export const BioGraphy = () => {
         extends beyond coding—I strive to build scalable, high-quality solutions
         with a contemporary and intuitive design.
       </p>
-      <InteractiveHoverButton>Download CV</InteractiveHoverButton>
+      <InteractiveHoverButton onClick={handleDownload}>
+        Download CV
+      </InteractiveHoverButton>
     </div>
   );
 };
