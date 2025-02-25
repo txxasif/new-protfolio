@@ -2,19 +2,7 @@
 
 import ProjectCard from "./ProjectCard";
 import { ErrorBoundary } from "react-error-boundary";
-import {
-  FaReact,
-  FaNodeJs,
-  FaDatabase,
-  FaServer,
-  FaJs,
-  FaPython,
-  FaDocker,
-  FaAws,
-  FaVuejs,
-  FaPhp,
-  FaJava,
-} from "react-icons/fa";
+import { FaReact, FaJs } from "react-icons/fa";
 
 const iconStyle = "h-6 w-6";
 
@@ -41,44 +29,6 @@ const projects: Project[] = [
     techStack: [
       { name: "React", icon: <FaReact className={iconStyle} /> },
       { name: "JavaScript", icon: <FaJs className={iconStyle} /> },
-    ],
-  },
-  {
-    name: "Cloud Solution",
-    details:
-      "A cloud-native application leveraging AWS services. Features containerized microservices with Docker, serverless functions, and automated CI/CD pipelines. Implements infrastructure as code and follows cloud best practices.",
-    liveLink: "https://cloud-solution.example.com",
-    githubLink: "https://github.com/yourusername/cloud-solution",
-    color: "#f59e0b",
-    techStack: [
-      { name: "Docker", icon: <FaDocker className={iconStyle} /> },
-      { name: "AWS", icon: <FaAws className={iconStyle} /> },
-      { name: "Python", icon: <FaPython className={iconStyle} /> },
-    ],
-  },
-  {
-    name: "Enterprise Portal",
-    details:
-      "A comprehensive enterprise portal built with Java and Spring Boot. This application provides role-based access control, document management, workflow automation, and integration with multiple enterprise systems. Deployed using a microservices architecture.",
-    // No links provided, both buttons should be disabled
-    color: "#8b5cf6",
-    techStack: [
-      { name: "Java", icon: <FaJava className={iconStyle} /> },
-      { name: "Docker", icon: <FaDocker className={iconStyle} /> },
-      { name: "AWS", icon: <FaAws className={iconStyle} /> },
-    ],
-  },
-  {
-    name: "Legacy System Migration",
-    details:
-      "A PHP-based migration tool that helped transition a legacy system to a modern architecture. Features automated data transformation, validation rules, and parallel processing capabilities. Successfully migrated over 10 million records with 99.9% accuracy.",
-    liveLink: "https://migration-tool.demo.com",
-    // No githubLink provided, GitHub button should be disabled
-    color: "#ec4899",
-    techStack: [
-      { name: "PHP", icon: <FaPhp className={iconStyle} /> },
-      { name: "Vue.js", icon: <FaVuejs className={iconStyle} /> },
-      { name: "MySQL", icon: <FaDatabase className={iconStyle} /> },
     ],
   },
 ];
