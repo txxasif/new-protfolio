@@ -35,13 +35,7 @@ export function AppSidebar() {
               >
                 <span className="relative z-10">{item.label}</span>
                 {currentTab === item.value && (
-                  <motion.span
-                    layoutId="underline"
-                    className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500 rounded-full"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
+                  <span className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500 rounded-full" />
                 )}
               </motion.div>
             ))}
