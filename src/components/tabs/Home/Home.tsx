@@ -2,7 +2,7 @@ import { InteractiveHoverButton } from "../../magicui/interactive-hover-button";
 import { WordRotate } from "../../magicui/word-rotate";
 import PageWrapper from "../../shared/PageWrapperAnimation";
 import PhotoComponent from "../../shared/RotatedPhoto";
-
+import Image from "next/image";
 const IntroPart = () => {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center gap-6">
@@ -20,8 +20,18 @@ const IntroPart = () => {
           <InteractiveHoverButton>See</InteractiveHoverButton>
         </div>
       </div>
-
-      <PhotoComponent />
+      <Image
+        src="/images/asif.jpg"
+        width={600}
+        height={800}
+        alt="Artistic photo"
+        className="block sm:hidden w-full h-full rounded-lg sm:rounded-xl object-cover grayscale contrast-105"
+        priority
+        sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, 600px"
+      />
+      <div className="hidden sm:block">
+        <PhotoComponent />
+      </div>
     </div>
   );
 };

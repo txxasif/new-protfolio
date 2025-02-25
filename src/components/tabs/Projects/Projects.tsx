@@ -126,7 +126,7 @@ function ErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
 
 export function Projects() {
   return (
-    <div className="p-8 space-y-8">
+    <div className="px-8 pt-28 space-y-8">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <ErrorBoundary
