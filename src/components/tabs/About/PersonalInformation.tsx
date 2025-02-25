@@ -1,3 +1,4 @@
+"use client";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { Heading } from "./Heading";
 
