@@ -1,7 +1,6 @@
 "use client";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { Heading } from "./Heading";
-import { useEffect, useState } from "react";
 
 export const PersonalDetails = () => {
   const contactData = [
@@ -30,20 +29,18 @@ export const PersonalDetails = () => {
   );
 };
 export const BioGraphy = () => {
-  const [isClient, setIsClient] = useState(false);
+  const handleDownload = async () => {
+    try {
+      const response = await fetch("/files/cv.pdf");
+      const blob = await response.blob();
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+      const url = URL.createObjectURL(blob);
 
-  const handleDownload = () => {
-    if (!isClient) return;
-    const link = document.createElement("a");
-    link.href = "/files/cv.pdf";
-    link.download = "asif_cv.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+      // Cleanup URL after some time
+      setTimeout(() => URL.revokeObjectURL(url), 100);
+    } catch (error) {
+      console.error("Error downloading the file:", error);
+    }
   };
 
   return (
