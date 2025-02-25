@@ -2,34 +2,17 @@
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { Heading } from "./Heading";
 
-export const PersonalDetails = () => {
-  const contactData = [
-    { label: "Name", value: "Asif" },
-    { label: "Address", value: "Dhaka , Bangladesh" },
-    { label: "Study", value: "Daffodil International University" },
-    { label: "Degree", value: "Computer Science and Engineering" },
-    { label: "Mail", value: "ahasiffff@gmail.com" },
-    { label: "Phone", value: "+8801679806197" },
-  ];
+import { useEffect, useState } from "react";
 
-  return (
-    <div className="space-y-10 flex-1 p-6">
-      <Heading title="Personal Details" />
-      <div className="">
-        {contactData.map((item, index) => (
-          <div key={index} className="mb-2 flex items-start ">
-            <strong className="w-auto sm:min-w-[140px] mr-2 font-medium text-[#000]">
-              {item.label}:
-            </strong>
-            <span className="text-[#767676]">{item.value}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 export const BioGraphy = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const handleDownload = () => {
+    if (!isClient) return;
     const link = document.createElement("a");
     link.href = "/files/cv.pdf";
     link.download = "asif_cv.pdf";
@@ -37,6 +20,7 @@ export const BioGraphy = () => {
     link.click();
     document.body.removeChild(link);
   };
+
   return (
     <div className="space-y-10 flex-1 p-6">
       <Heading title="Biography" />
