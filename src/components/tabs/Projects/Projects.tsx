@@ -53,7 +53,7 @@ function ErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
   );
 }
 
-export function Projects() {
+export default function Projects() {
   return (
     <div className="px-8 pt-4 pb-4 sm:pt-28 space-y-8">
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

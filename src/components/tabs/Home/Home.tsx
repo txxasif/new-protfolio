@@ -55,10 +55,11 @@ const IntroPart = () => {
   );
 };
 
-export const Home: React.FC = () => (
+const Home: React.FC = () => (
   <PageWrapper>
     <div className="pt-6 sm:flex items-center justify-center sm:h-screen mx-4 sm:mx-20">
       <IntroPart />
     </div>
   </PageWrapper>
 );
+export default Home;

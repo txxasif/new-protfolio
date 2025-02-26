@@ -10,7 +10,7 @@ import dynamic from "next/dynamic";
 const BioGraphy = dynamic(() => import("./PersonalInformation"), {
   ssr: false,
 });
-export function About() {
+export default function About() {
   return (
     <PageWrapper>
       <div className="pt-0 sm:pt-28 sm:mx-20">
