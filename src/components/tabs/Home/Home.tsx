@@ -1,9 +1,19 @@
+import dynamic from "next/dynamic";
 import { useTabStore } from "@/store/tab-store";
 import { InteractiveHoverButton } from "../../magicui/interactive-hover-button";
 import { WordRotate } from "../../magicui/word-rotate";
-import PageWrapper from "../../shared/PageWrapperAnimation";
-import PhotoComponent from "../../shared/RotatedPhoto";
 import Image from "next/image";
+
+const DynamicPhotoComponent = dynamic(
+  () => import("../../shared/RotatedPhoto"),
+  {
+    ssr: false,
+  }
+);
+const PageWrapper = dynamic(() => import("../../shared/PageWrapperAnimation"), {
+  ssr: false,
+});
+
 const IntroPart = () => {
   const { setTab } = useTabStore();
 
@@ -39,7 +49,7 @@ const IntroPart = () => {
         sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, 600px"
       />
       <div className="hidden sm:block">
-        <PhotoComponent />
+        <DynamicPhotoComponent />
       </div>
     </div>
   );

@@ -1,12 +1,15 @@
 import React from "react";
 import { Education } from "./Eduction";
 import { Experience } from "./Experience";
-import { BioGraphy, PersonalDetails } from "./PersonalInformation";
+import { PersonalDetails } from "./PersonalInformation";
 import { Technologies } from "./Technologies";
 import { Interests } from "./Interest";
 import PageWrapper from "@/components/shared/PageWrapperAnimation";
 import { Separator } from "@/components/ui/separator";
-
+import dynamic from "next/dynamic";
+const BioGraphy = dynamic(() => import("./PersonalInformation"), {
+  ssr: false,
+});
 export function About() {
   return (
     <PageWrapper>

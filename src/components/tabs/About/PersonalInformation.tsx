@@ -28,7 +28,7 @@ export const PersonalDetails = () => {
     </div>
   );
 };
-export const BioGraphy = () => {
+const BioGraphy = () => {
   const handleDownload = async () => {
     try {
       const response = await fetch("/files/cv.pdf");
@@ -60,3 +60,4 @@ export const BioGraphy = () => {
     </div>
   );
 };
+export default BioGraphy;
