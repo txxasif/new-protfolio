@@ -3,11 +3,7 @@ import { Syne } from "next/font/google";
 import "./globals.css";
 import { AppSidebar } from "@/components/sidebar/AppSideBar";
 import { DockBottom } from "@/components/shared/Dock";
-import dynamic from "next/dynamic";
-
-const SidebarProvider = dynamic(() => import("@/components/ui/sidebar"), {
-  ssr: false,
-});
+import { SidebarProvider } from "@/components/dynami";
 
 const syne = Syne({
   subsets: ["latin"],
