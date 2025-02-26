@@ -4,3 +4,6 @@ export { NodeJsIcon } from "./NodeJsIcon";
 export { ReactIcon } from "./ReactIcon";
 export { MongoDbIcon } from "./MongoDbIcon";
 export { PostGresIcon } from "./PostGresIcon";
+export { NextJsIcon } from "./NextJsIcon";
+export { ExpressJs } from "./ExpressJs";
+export { ThreeJSIcon } from "./ThreeJSIcon";

@@ -13,37 +13,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, ChevronDown } from "lucide-react";
 
-// Update the interface to accept an array of tech objects
-interface TechItem {
-  name: string;
-  icon: React.ReactNode;
-}
-
-interface ProjectCardProps {
-  name: string;
-  details: string;
-  liveLink?: string;
-  githubLink?: string; // Made optional
-  color?: string;
-  techStack: TechItem[];
-}
-
 const ProjectCard = React.memo(
-  ({
-    name,
-    details,
-    liveLink,
-    githubLink,
-    color = "#3b82f6",
-    techStack,
-  }: ProjectCardProps) => {
+  ({ name, details, liveLink, githubLink, techStack }: ProjectCardProps) => {
     const [isExpanded, setIsExpanded] = React.useState(false);
 
     const toggleExpand = useCallback(() => {
       setIsExpanded((prev) => !prev);
     }, []);
 
-    // Animation variants for tech icons
     const iconVariants = {
       hover: {
         scale: 1.2,
@@ -52,7 +29,6 @@ const ProjectCard = React.memo(
       },
     };
 
-    // Button wrapper that conditionally renders Link or disabled button
     const ButtonWrapper = ({
       href,
       children,
@@ -99,7 +75,6 @@ const ProjectCard = React.memo(
                   <motion.div
                     variants={iconVariants}
                     className="text-gray-700 mb-1"
-                    style={{ color }}
                   >
                     {tech.icon}
                   </motion.div>

@@ -3,8 +3,6 @@
 import { Sidebar, SidebarContent, useSidebar } from "@/components/ui/sidebar";
 import { useTabStore } from "@/store/tab-store";
 import { motion } from "framer-motion";
-import HiAnimation from "@/components/animation-lottie/wave.json";
-import Lottie from "lottie-react";
 
 type Tabs = "home" | "about" | "projects";
 
@@ -20,16 +18,8 @@ export function AppSidebar() {
   return (
     <>
       <Sidebar side={!isMobile ? "left" : "right"} className="hidden md:block">
-        <SidebarContent className="flex flex-col items-center  ">
-          <div>
-            <Lottie
-              className={"size-32"}
-              animationData={HiAnimation}
-              loop={true}
-            />
-          </div>
-
-          <div className="flex flex-col gap-4">
+        <SidebarContent className="flex flex-col items-center  justify-center ">
+          <div className="flex flex-col  gap-4">
             {menuItems.map((item) => (
               <motion.div
                 key={item.value}

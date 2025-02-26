@@ -3,6 +3,9 @@ import { useTabStore } from "@/store/tab-store";
 import { InteractiveHoverButton } from "../../magicui/interactive-hover-button";
 import { WordRotate } from "../../magicui/word-rotate";
 import Image from "next/image";
+import SocialIcons from "@/components/socaila/Socials";
+import Lottie from "lottie-react";
+import HiAnimation from "@/components/animation-lottie/wave.json";
 
 const DynamicPhotoComponent = dynamic(
   () => import("../../shared/RotatedPhoto"),
@@ -20,6 +23,13 @@ const IntroPart = () => {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center gap-6">
       <div className="space-y-3">
+        <div className="flex items-center justify-center w-fit -ml-6 sm:-ml-10 ">
+          <Lottie
+            className={"size-32"}
+            animationData={HiAnimation}
+            loop={true}
+          />
+        </div>
         <p className="text- leading-[31px] text-[#767676]">{`// AH Asif`}</p>
         <h1 className="text-2xl sm:text-4xl font-bold text-black dark:text-white">
           {"Hi, My Name is Asif and I'm a"}
@@ -37,6 +47,9 @@ const IntroPart = () => {
           >
             See My Works
           </InteractiveHoverButton>
+        </div>
+        <div className="pt-4">
+          <SocialIcons />
         </div>
       </div>
       <Image
@@ -57,7 +70,7 @@ const IntroPart = () => {
 
 const Home: React.FC = () => (
   <PageWrapper>
-    <div className="pt-6 sm:flex items-center justify-center sm:h-screen mx-4 sm:mx-20">
+    <div className="pt-6 sm:pt-0 sm:flex items-center justify-center sm:h-screen mx-4 sm:mx-20 ">
       <IntroPart />
     </div>
   </PageWrapper>
