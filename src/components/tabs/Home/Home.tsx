@@ -30,7 +30,7 @@ const IntroPart = () => {
             loop={true}
           />
         </div>
-        <p className="text- leading-[31px] text-[#767676]">{`// AH Asif`}</p>
+        <p className="text- leading-[31px] text-[#767676]">{`// Amjad Hossain Asif`}</p>
         <h1 className="text-2xl sm:text-4xl font-bold text-black dark:text-white">
           {"Hi, My Name is Asif and I'm a"}
           <WordRotate
