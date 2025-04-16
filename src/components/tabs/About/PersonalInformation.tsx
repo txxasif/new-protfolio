@@ -36,6 +36,14 @@ const BioGraphy = () => {
 
       const url = URL.createObjectURL(blob);
 
+      // Create a temporary anchor element and trigger download
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "cv.pdf"; // Set the file name
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
       // Cleanup URL after some time
       setTimeout(() => URL.revokeObjectURL(url), 100);
     } catch (error) {
