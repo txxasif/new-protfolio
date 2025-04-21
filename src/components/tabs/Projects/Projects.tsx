@@ -9,6 +9,7 @@ import {
   NextJsIcon,
   ExpressJs,
   ThreeJSIcon,
+  GatsbyIcon,
 } from "@/icons";
 
 const iconStyle = "h-6 w-6";
@@ -18,11 +19,21 @@ export default function Projects() {
     {
       name: "Pioo AI",
       details:
-        "Pioo AI is an advanced AI-powered chatbot platform similar to ChatGPT, designed to provide intelligent and natural language interactions. Whether for answering questions, assisting with tasks, or engaging in meaningful conversations, Pioo AI delivers fast and accurate responses, making it a versatile tool for various applications.",
-      liveLink: "https://pioo.ai/",
+        "Pioo AI is an advanced AI-powered chatbot platform similar to ChatGPT, designed to provide intelligent and natural language interactions.",
 
       techStack: [
         { name: "NextJs", icon: <NextJsIcon className={iconStyle} /> },
+        { name: "JavaScript", icon: <JavaScriptIcon className={iconStyle} /> },
+        { name: "TyepScript", icon: <TypeScriptIcon className={iconStyle} /> },
+      ],
+    },
+    {
+      name: "Parkolay Landing Page",
+      details: "Parkolay Landing Page is a landing page for a parking company.",
+      liveLink: "https://main.d3u1eqtyinh739.amplifyapp.com/",
+
+      techStack: [
+        { name: "Gatsby", icon: <GatsbyIcon className={iconStyle} /> },
         { name: "JavaScript", icon: <JavaScriptIcon className={iconStyle} /> },
         { name: "TyepScript", icon: <TypeScriptIcon className={iconStyle} /> },
       ],

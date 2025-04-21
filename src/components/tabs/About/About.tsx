@@ -3,7 +3,6 @@ import { Education } from "./Eduction";
 import { Experience } from "./Experience";
 import { PersonalDetails } from "./PersonalInformation";
 import { Technologies } from "./Technologies";
-import { Interests } from "./Interest";
 import PageWrapper from "@/components/shared/PageWrapperAnimation";
 import { Separator } from "@/components/ui/separator";
 import dynamic from "next/dynamic";
@@ -31,7 +30,7 @@ export default function About() {
 
         <div className="flex flex-col md:flex-row justify-center items-start gap-6 ">
           <Technologies />
-          <Interests />
+          {/* <Interests /> */}
         </div>
       </div>
     </PageWrapper>
