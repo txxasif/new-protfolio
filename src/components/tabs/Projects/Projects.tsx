@@ -26,6 +26,7 @@ export default function Projects() {
         { name: "JavaScript", icon: <JavaScriptIcon className={iconStyle} /> },
         { name: "TyepScript", icon: <TypeScriptIcon className={iconStyle} /> },
       ],
+      liveLink: "https://pioo.ai/",
     },
     {
       name: "Parkolay Landing Page",
