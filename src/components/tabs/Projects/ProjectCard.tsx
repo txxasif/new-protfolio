@@ -18,7 +18,6 @@ const ProjectCard = React.memo(
     githubLink,
     techStack,
     image,
-    category,
     gradient = "from-purple-500 to-pink-500",
     index,
   }: ProjectCardPropsWithIndex) => {
@@ -49,17 +48,6 @@ const ProjectCard = React.memo(
               <div
                 className={`w-full h-full bg-gradient-to-br ${gradient}`}
               />
-            )}
-            {/* Gradient Overlay */}
-            <div className={`absolute inset-0 bg-gradient-to-${isEven ? 'r' : 'l'} from-transparent via-transparent to-background/80 lg:to-background/95`} />
-            
-            {/* Floating Category Badge */}
-            {category && (
-              <div className="absolute top-6 left-6 z-10">
-                <span className="inline-block px-4 py-2 text-sm font-semibold bg-background/90 backdrop-blur-md text-foreground rounded-full border border-border shadow-lg">
-                  {category}
-                </span>
-              </div>
             )}
           </div>
 
