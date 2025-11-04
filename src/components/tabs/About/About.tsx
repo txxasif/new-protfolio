@@ -12,7 +12,7 @@ const BioGraphy = dynamic(() => import("./PersonalInformation"), {
 export default function About() {
   return (
     <PageWrapper>
-      <div className="pt-0 sm:pt-28 sm:mx-20">
+      <div className="pt-8 sm:pt-16 sm:mx-20">
         <div className="flex flex-col md:flex-row justify-center items-start gap-6">
           <BioGraphy />
           <PersonalDetails />

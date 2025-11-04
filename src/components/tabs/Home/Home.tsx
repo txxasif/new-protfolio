@@ -70,7 +70,7 @@ const IntroPart = () => {
 
 const Home: React.FC = () => (
   <PageWrapper>
-    <div className="pt-6 sm:pt-0 sm:flex items-center justify-center sm:h-screen mx-4 sm:mx-20 ">
+    <div className="pt-12 sm:pt-0 sm:flex items-center justify-center sm:min-h-[calc(100vh-5rem)] mx-4 sm:mx-20 ">
       <IntroPart />
     </div>
   </PageWrapper>

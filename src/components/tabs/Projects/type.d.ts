@@ -8,17 +8,15 @@ interface Project {
   details: string;
   liveLink?: string;
   githubLink?: string;
-
   techStack: TechItem[];
+  image?: string;
+  category?: string;
+  gradient?: string;
 }
+
 interface ErrorFallbackProps {
   error: Error;
   resetErrorBoundary: () => void;
-}
-
-interface TechItem {
-  name: string;
-  icon: React.ReactNode;
 }
 
 interface ProjectCardProps {
@@ -26,6 +24,9 @@ interface ProjectCardProps {
   details: string;
   liveLink?: string;
   githubLink?: string;
-  color?: string;
   techStack: TechItem[];
+  image?: string;
+  category?: string;
+  gradient?: string;
+  index?: number;
 }

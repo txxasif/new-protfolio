@@ -1,135 +1,137 @@
 "use client";
 
-import React, { useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, ChevronDown } from "lucide-react";
+import { Github, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+
+interface ProjectCardPropsWithIndex extends ProjectCardProps {
+  index: number;
+}
 
 const ProjectCard = React.memo(
-  ({ name, details, liveLink, githubLink, techStack }: ProjectCardProps) => {
-    const [isExpanded, setIsExpanded] = React.useState(false);
-
-    const toggleExpand = useCallback(() => {
-      setIsExpanded((prev) => !prev);
-    }, []);
-
-    const iconVariants = {
-      hover: {
-        scale: 1.2,
-        rotate: 10,
-        transition: { duration: 0.2 },
-      },
-    };
-
-    const ButtonWrapper = ({
-      href,
-      children,
-    }: {
-      href?: string;
-      children: React.ReactNode;
-    }) => {
-      if (href) {
-        return (
-          <Button variant="outline" className="flex items-center gap-2" asChild>
-            <Link href={href} target="_blank" rel="noopener noreferrer">
-              {children}
-            </Link>
-          </Button>
-        );
-      }
-
-      return (
-        <Button
-          variant="outline"
-          className="flex items-center gap-2 opacity-50 cursor-not-allowed"
-          disabled
-        >
-          {children}
-        </Button>
-      );
-    };
+  ({
+    name,
+    details,
+    liveLink,
+    githubLink,
+    techStack,
+    image,
+    category,
+    gradient = "from-purple-500 to-pink-500",
+    index,
+  }: ProjectCardPropsWithIndex) => {
+    const [imageError, setImageError] = useState(false);
+    const isEven = index % 2 === 0;
 
     return (
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6, delay: index * 0.1 }}
+        className="group relative overflow-hidden rounded-3xl bg-card border border-border"
       >
-        <Card className="w-full max-w-md overflow-hidden border-gray-700">
-          <CardHeader className="pb-4">
-            <div className="flex gap-4">
-              {techStack.map((tech, index) => (
-                <motion.div
-                  key={index}
-                  whileHover="hover"
-                  className="flex flex-col items-center"
-                >
-                  <motion.div
-                    variants={iconVariants}
-                    className="text-gray-700 mb-1"
-                  >
-                    {tech.icon}
-                  </motion.div>
-                  <span className="text-xs">{tech.name}</span>
-                </motion.div>
-              ))}
-            </div>
-            <CardTitle className="text-2xl font-bold mt-3">{name}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <motion.div
-              initial={false}
-              animate={{ height: isExpanded ? "auto" : "3em" }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden"
-            >
-              <p className="text-muted-foreground">{details}</p>
-            </motion.div>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleExpand}
-              className="mt-2 w-full flex items-center justify-center"
-            >
-              <ChevronDown
-                className={`h-4 w-4 transition-transform duration-300 ${
-                  isExpanded ? "rotate-180" : ""
-                }`}
+        <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} min-h-[400px] lg:min-h-[500px]`}>
+          {/* Image Section */}
+          <div className="relative w-full lg:w-1/2 h-[300px] lg:h-auto overflow-hidden bg-secondary/20">
+            {image && !imageError ? (
+              <Image
+                src={image}
+                alt={name}
+                fill
+                className="object-contain transition-all duration-700 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                onError={() => setImageError(true)}
+                priority={index < 2}
               />
-              <span className="sr-only">
-                {isExpanded ? "Show less" : "Show more"}
-              </span>
-            </Button>
-          </CardContent>
-          <CardFooter className="flex justify-between">
-            <AnimatePresence>
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
-              >
-                <ButtonWrapper href={liveLink}>
-                  <ExternalLink className="h-4 w-4" />
-                  Live Demo
-                </ButtonWrapper>
-              </motion.div>
-            </AnimatePresence>
+            ) : (
+              <div
+                className={`w-full h-full bg-gradient-to-br ${gradient}`}
+              />
+            )}
+            {/* Gradient Overlay */}
+            <div className={`absolute inset-0 bg-gradient-to-${isEven ? 'r' : 'l'} from-transparent via-transparent to-background/80 lg:to-background/95`} />
+            
+            {/* Floating Category Badge */}
+            {category && (
+              <div className="absolute top-6 left-6 z-10">
+                <span className="inline-block px-4 py-2 text-sm font-semibold bg-background/90 backdrop-blur-md text-foreground rounded-full border border-border shadow-lg">
+                  {category}
+                </span>
+              </div>
+            )}
+          </div>
 
-            <ButtonWrapper href={githubLink}>
-              <Github className="h-4 w-4" />
-              GitHub
-            </ButtonWrapper>
-          </CardFooter>
-        </Card>
+          {/* Content Section */}
+          <div className="relative w-full lg:w-1/2 flex flex-col justify-between p-8 lg:p-12">
+            {/* Project Number */}
+            <div className="absolute top-4 right-4 lg:top-8 lg:right-8">
+              <span className="text-6xl lg:text-8xl font-bold text-muted-foreground/10">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+            </div>
+
+            <div className="space-y-6 relative z-10">
+              {/* Title */}
+              <div>
+                <h3 className="text-3xl lg:text-4xl font-bold mb-3 group-hover:text-primary transition-colors">
+                  {name}
+                </h3>
+                <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/30 rounded-full" />
+              </div>
+
+              {/* Description */}
+              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
+                {details}
+              </p>
+
+              {/* Tech Stack */}
+              <div className="flex flex-wrap gap-3">
+                {techStack.map((tech, techIndex) => (
+                  <motion.div
+                    key={techIndex}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.1 * techIndex }}
+                    className="flex items-center gap-2 px-4 py-2 bg-secondary/50 hover:bg-secondary rounded-xl border border-border transition-all hover:border-primary/50"
+                  >
+                    <span className="text-foreground">{tech.icon}</span>
+                    <span className="text-sm font-medium text-foreground">
+                      {tech.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap gap-4 mt-8">
+              {liveLink && (
+                <Link
+                  href={liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/btn flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-xl font-semibold text-sm hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl hover:scale-105"
+                >
+                  <span>View Live Project</span>
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+                </Link>
+              )}
+              {githubLink && (
+                <Link
+                  href={githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-6 py-3 bg-secondary hover:bg-secondary/80 text-foreground rounded-xl font-semibold text-sm transition-all border border-border hover:border-primary/50"
+                >
+                  <Github className="h-4 w-4" />
+                  <span>Source Code</span>
+                </Link>
+              )}
+            </div>
+          </div>
+        </div>
       </motion.div>
     );
   }
