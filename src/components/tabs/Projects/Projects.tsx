@@ -8,6 +8,7 @@ import {
   TypeScriptIcon,
   NextJsIcon,
   GatsbyIcon,
+  AstroIcon,
 } from "@/icons";
 
 const iconStyle = "h-4 w-4";
@@ -21,9 +22,8 @@ export default function Projects() {
       category: "Parking System",
       gradient: "from-green-400 to-blue-500",
       image: "/images/projects/parokolay.png",
-      liveLink: "https://main.d3u1eqtyinh739.amplifyapp.com/",
       techStack: [
-        { name: "Gatsby", icon: <GatsbyIcon className={iconStyle} /> },
+        { name: "Next.js", icon: <NextJsIcon className={iconStyle} /> },
         { name: "TypeScript", icon: <TypeScriptIcon className={iconStyle} /> },
       ],
     },
@@ -60,7 +60,6 @@ export default function Projects() {
       category: "Sustainability",
       gradient: "from-emerald-400 to-teal-500",
       image: "/images/projects/ecopass.png",
-      liveLink: "https://dev.ecopass.huipsov.fi/en",
       techStack: [
         { name: "Next.js", icon: <NextJsIcon className={iconStyle} /> },
         { name: "TypeScript", icon: <TypeScriptIcon className={iconStyle} /> },
@@ -74,8 +73,8 @@ export default function Projects() {
       gradient: "from-indigo-500 via-blue-500 to-cyan-500",
       image: "/images/projects/huipsov.png",
       techStack: [
-        { name: "Next.js", icon: <NextJsIcon className={iconStyle} /> },
         { name: "TypeScript", icon: <TypeScriptIcon className={iconStyle} /> },
+        { name: "Gatsby", icon: <GatsbyIcon className={iconStyle} /> },
       ],
       liveLink: "https://huipsov.fi/",
     },
@@ -87,7 +86,7 @@ export default function Projects() {
       gradient: "from-orange-400 via-amber-400 to-blue-400",
       image: "/images/projects/pom-tech.png",
       techStack: [
-        { name: "Next.js", icon: <NextJsIcon className={iconStyle} /> },
+        { name: "Astro", icon: <AstroIcon className={iconStyle} /> },
         { name: "TypeScript", icon: <TypeScriptIcon className={iconStyle} /> },
       ],
       liveLink: "https://www.pomtech.us/",

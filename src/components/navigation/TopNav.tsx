@@ -3,12 +3,13 @@
 import { useTabStore } from "@/store/tab-store";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, User, FolderKanban, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import { LucideIcon } from "lucide-react";
 
 type Tabs = "home" | "about" | "projects";
 
-const menuItems: { label: string; value: Tabs; icon: any }[] = [
+const menuItems: { label: string; value: Tabs; icon: LucideIcon }[] = [
   { label: "Home", value: "home", icon: Home },
   { label: "About", value: "about", icon: User },
   { label: "Projects", value: "projects", icon: FolderKanban },
@@ -17,6 +18,16 @@ const menuItems: { label: string; value: Tabs; icon: any }[] = [
 export function TopNav() {
   const { setTab, currentTab } = useTabStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -25,7 +36,9 @@ export function TopNav() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="hidden md:block fixed top-0 left-0 right-0 z-50"
+        className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-sm" : ""
+        }`}
       >
         <div className="mx-auto max-w-7xl px-6 py-4">
           <div className="flex items-center justify-between">
@@ -113,7 +126,9 @@ export function TopNav() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="md:hidden fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border"
+        className={`md:hidden fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled ? "bg-background/90 backdrop-blur-xl" : "bg-background/80 backdrop-blur-xl"
+        } border-b border-border`}
       >
         <div className="flex items-center justify-between px-4 py-3">
           {/* Logo */}

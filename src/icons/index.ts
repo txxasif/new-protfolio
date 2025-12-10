@@ -9,3 +9,4 @@ export { PostGresIcon } from "./PostGresIcon";
 export { ReactIcon } from "./ReactIcon";
 export { ThreeJSIcon } from "./ThreeJSIcon";
 export { TypeScriptIcon } from "./TypeScriptIcon";
+export { AstroIcon } from "./AstroIcon";

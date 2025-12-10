@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import { Syne } from "next/font/google";
 import "./globals.css";
 import { TopNav } from "@/components/navigation/TopNav";
 import SmoothScroll from "@/components/shared/SmoothScroll";
+import localFont from 'next/font/local';
 
-const syne = Syne({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
+const syne = localFont({
+  src: [
+    { path: '../../public/fonts/Syne-400.ttf', weight: '400' },
+    { path: '../../public/fonts/Syne-600.ttf', weight: '600' },
+    { path: '../../public/fonts/Syne-700.ttf', weight: '700' },
+  ],
+  variable: '--font-syne',
 });
 
 export const metadata: Metadata = {
