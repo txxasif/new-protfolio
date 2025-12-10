@@ -5,10 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Home, User, FolderKanban, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { LucideIcon } from "lucide-react";
 
 type Tabs = "home" | "about" | "projects";
 
-const menuItems: { label: string; value: Tabs; icon: any }[] = [
+const menuItems: { label: string; value: Tabs; icon: LucideIcon }[] = [
   { label: "Home", value: "home", icon: Home },
   { label: "About", value: "about", icon: User },
   { label: "Projects", value: "projects", icon: FolderKanban },
