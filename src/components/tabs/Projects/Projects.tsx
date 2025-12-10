@@ -22,7 +22,6 @@ export default function Projects() {
       category: "Parking System",
       gradient: "from-green-400 to-blue-500",
       image: "/images/projects/parokolay.png",
-      liveLink: "https://main.d3u1eqtyinh739.amplifyapp.com/",
       techStack: [
         { name: "Next.js", icon: <NextJsIcon className={iconStyle} /> },
         { name: "TypeScript", icon: <TypeScriptIcon className={iconStyle} /> },
@@ -61,7 +60,6 @@ export default function Projects() {
       category: "Sustainability",
       gradient: "from-emerald-400 to-teal-500",
       image: "/images/projects/ecopass.png",
-      liveLink: "https://dev.ecopass.huipsov.fi/en",
       techStack: [
         { name: "Next.js", icon: <NextJsIcon className={iconStyle} /> },
         { name: "TypeScript", icon: <TypeScriptIcon className={iconStyle} /> },
